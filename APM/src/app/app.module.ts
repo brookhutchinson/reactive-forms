@@ -9,7 +9,7 @@ import { HomeModule }       from './modules/home/home.module';
 import { ProductModule }    from './modules/product/product.module';
 
 // app routing module
-import { AppRoutingModule } from './app.routing.module';
+import { AppRoutingModule } from './app-routing.module';
 
 // components
 import { AppComponent }     from './app.component';
