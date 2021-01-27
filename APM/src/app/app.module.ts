@@ -1,27 +1,34 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+// angular modules
+import { NgModule }         from '@angular/core';
+import { BrowserModule }    from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule }     from '@angular/router';
 
-import { AppComponent } from './app.component';
-import { WelcomeComponent } from './home/welcome.component';
-import { ProductModule } from './products/product.module';
+// feature modules
+import { HomeModule }       from './modules/home/home.module';
+import { ProductModule }    from './modules/product/product.module';
+
+// app routing module
+import { AppRoutingModule } from './app.routing.module';
+
+// components
+import { AppComponent }     from './app.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    WelcomeComponent
-  ],
+  // modules
   imports: [
-    BrowserModule,
-    HttpClientModule,
-    RouterModule.forRoot([
-    { path: 'welcome', component: WelcomeComponent },
-    { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-    { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
-], { relativeLinkResolution: 'legacy' }),
-    ProductModule
+    // angular modules
+    BrowserModule, HttpClientModule, RouterModule,
+    // feature modules
+    HomeModule, ProductModule,
+    // app routing module
+    AppRoutingModule
   ],
-  bootstrap: [AppComponent]
+  // components
+  declarations: [ AppComponent ],
+  // services
+  providers: [],
+  // bootstrap
+  bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {}
